@@ -1,0 +1,8 @@
+pushbullet:
+  access_token: 'ACCESS TOKEN HERE'
+
+tmr:
+  number: '88008'
+  from: Station code
+  to: Another station code
+  time: Time in 24h format
