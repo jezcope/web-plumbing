@@ -1,0 +1,5 @@
+* Web plumbing
+
+/A set of scripts that I use to automate parts of my life on the web./
+
+I've used [[http://ifttt.com][IFTTT]] for web services automation for a while, but I wanted to have more control over what was going on.  [[https://github.com/cantino/huginn/][Huginn]] seems interesting, but being a Rails app it requires a lot of memory to run and a lot of effort just to get going.  So instead I thought I'd try putting together a few simple scripts, in whatever language(s) I fancy, to do the right thing.
