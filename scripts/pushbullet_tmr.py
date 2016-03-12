@@ -19,6 +19,7 @@ payload = {
 }
 pp(payload)
 
-# r = requests.post('https://api.pushbullet.com/v2/ephemerals', headers=headers, json=payload)
+r = requests.post('https://api.pushbullet.com/v2/ephemerals', headers=headers, json=payload)
 
-# print('Response code:', r.status_code)
+pp(r.json())
+print('Response code:', r.status_code)
