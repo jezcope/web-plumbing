@@ -2,8 +2,7 @@
 Description=Run pushbullet test every few minutes
 
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=2min
+OnCalendar=*:00,05,10,15,20,25,30,35,40,45,50,55:00
 
 [Install]
 WantedBy=timers.target
