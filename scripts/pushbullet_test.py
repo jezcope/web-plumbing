@@ -1,6 +1,7 @@
 import requests
 import yaml
-import datetime
+from datetime import datetime
+from socket import gethostname
 from pprint import pprint as pp
 
 config = yaml.load(open('plumbing.yaml'))
@@ -8,7 +9,7 @@ config = yaml.load(open('plumbing.yaml'))
 headers = {'Access-Token': config['pushbullet']['access_token']}
 payload = {
     'title': 'Test from Python',
-    'body': 'This was sent at %s' % datetime.datetime.now(),
+    'body': 'This was sent at %s from %s' % (datetime.now(), gethostname()),
     'type': 'note',
 }
 
