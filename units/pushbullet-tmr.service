@@ -1,0 +1,7 @@
+[Unit]
+Description=Book a seat on a train
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "source env/bin/activate && python pushbullet_tmr.py"
+WorkingDirectory=/home/jez/.web-plumbing

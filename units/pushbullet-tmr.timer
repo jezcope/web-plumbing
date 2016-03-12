@@ -1,0 +1,8 @@
+[Unit]
+Description=Run pushbullet-tmr on weekdays
+
+[Timer]
+OnCalendar=Mon-Fri 06:00
+
+[Install]
+WantedBy=timers.target
