@@ -12,8 +12,8 @@ payload = {
         'package_name': 'com.pushbullet.android',
         'conversation_iden': tmr['number'],
         'message': 'TMR %s %s %s' % (tmr['from'], tmr['to'], tmr['time']),
-        'source_user_iden': 'USER_ID',
-        'target_device_iden': 'DEVICE_ID',
+        'source_user_iden': config['pushbullet']['default_user'],
+        'target_device_iden': config['pushbullet']['default_device'],
     },
     'type': 'push',
 }
