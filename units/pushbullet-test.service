@@ -3,5 +3,5 @@ Description=Test pushbullet
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/sh -c "source env/bin/activate && python pushbullet_test.py"
+ExecStart=/bin/sh -c ". env/bin/activate && python pushbullet_test.py"
 WorkingDirectory=/home/jez/.web-plumbing
