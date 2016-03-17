@@ -9,12 +9,13 @@ class BufferSyndicate:
         self.config = config['buffer']
 
     def syndicate(self, text, url):
-        print('Sending to buffer: "{} {}"'.format(text, url))
+        print('Sending to buffer: "{} {}"... '.format(text, url), end='', flush=True)
 
         r = requests.post('https://api.bufferapp.com/1/updates/create.json',
                           data={
                               'access_token': self.config['access_token'],
-                              'profile_ids[]': self.config['tw_profile'],
+                              'profile_ids[]': [self.config['tw_profile'],
+                                                self.config['fb_profile']],
                               'text': text,
                               'media[link]': url
                               })
@@ -23,6 +24,7 @@ class BufferSyndicate:
             print('Success')
         else:
             print('Failed with code {}'.format(r.status_code))
+            print('Error:', r.json()['message'])
 
 class TweetNowSyndicate:
     pass
@@ -45,15 +47,11 @@ syndicate = [BufferSyndicate(config)]
 
 last_updated = state.get('er_last_updated', dt(2000, 1, 2))
 
-print(last_updated)
-
 for entry in feed.entries:
     entry_updated = dt.fromtimestamp(mktime(entry.updated_parsed))
     if entry_updated > last_updated:
         for s in syndicate:
             s.syndicate('Recently blogged: ' + entry.title, entry.link)
-    else:
-        print('[Skipping "{0}" (updated {1:%c})]'.format(entry.title, entry_updated))
 
 state['er_last_updated'] = dt.now()
 yaml.dump(state, open('plumbing-state.yaml', 'w'), default_flow_style=False)
