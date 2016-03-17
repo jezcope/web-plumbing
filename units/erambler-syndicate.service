@@ -1,0 +1,7 @@
+[Unit]
+Description=Syndicate new eRambler posts to social media
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c ". env/bin/activate && python erambler_syndicate.py"
+WorkingDirectory=/home/jez/.web-plumbing
