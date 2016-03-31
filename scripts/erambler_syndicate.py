@@ -20,7 +20,8 @@ class BufferSyndicate:
                               'access_token': self.config['access_token'],
                               'profile_ids[]': [self.config['tw_profile']],
                               'text': text,
-                              'media[link]': url
+                              'media[link]': url,
+                              'now': str(self.now).lower()
                               })
 
         if r.status_code == 200:
