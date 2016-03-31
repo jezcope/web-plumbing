@@ -57,5 +57,5 @@ for entry in feed.entries:
                         teaser=entry.get('prism_teaser', entry.title),
                         url=entry.link)
 
-state['er_last_updated'] = dt.now()
+state['er_last_updated'] = dt.fromtimestamp(mktime(feed.updated_parsed))
 yaml.dump(state, open('plumbing-state.yaml', 'w'), default_flow_style=False)
